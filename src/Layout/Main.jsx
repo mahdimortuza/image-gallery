@@ -1,15 +1,13 @@
-import Gallery from "../components/Gallery/Gallery";
-import Header from "../components/Header/Header";
-import HorizontalLine from "../components/HorizontalLine/HorizontalLine";
-import Navbar from "../components/Navbar/Navbar";
+import { Outlet } from "react-router-dom";
+import Footer from "../pages/Shared/Footer/Footer";
+import Navbar from "../pages/Shared/Navbar/Navbar";
 
 const Main = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <Header></Header>
-      <HorizontalLine></HorizontalLine>
-      <Gallery></Gallery>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </div>
   );
 };
