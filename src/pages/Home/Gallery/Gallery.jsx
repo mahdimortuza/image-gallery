@@ -41,7 +41,11 @@ const Gallery = () => {
         <SortableContext items={images} strategy={rectSortingStrategy}>
           <div className="grid grid-cols-5 gap-3 w-[800px] mx-auto py-5">
             {images.map((image, index) => (
-              <SortableImage key={image.id} image={image} index={index} />
+              <SortableImage
+                key={image.id}
+                image={image}
+                index={index}
+              />
             ))}
 
             <label htmlFor="input-file">

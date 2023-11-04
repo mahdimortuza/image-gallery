@@ -14,6 +14,8 @@ const SortableImage = (props) => {
 
   return (
     <Image
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       ref={setNodeRef}
       style={style}
       {...props}
