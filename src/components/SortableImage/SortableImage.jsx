@@ -9,6 +9,7 @@ const SortableImage = (props) => {
 
   const style = {
     transform: CSS.Transform.toString(transform),
+    transformOrigin: '0 0',
     transition,
   };
 
