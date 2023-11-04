@@ -1,7 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-import { Photo } from "../Image/Image";
+import { Image } from "../Image/Image";
 
 const SortableImage = (props) => {
   const sortable = useSortable({ id: props.image });
@@ -13,7 +13,7 @@ const SortableImage = (props) => {
   };
 
   return (
-    <Photo
+    <Image
       ref={setNodeRef}
       style={style}
       {...props}

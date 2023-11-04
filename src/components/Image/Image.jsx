@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 /* eslint-disable react/display-name */
-export const Photo = forwardRef(
+export const Image = forwardRef(
   ({ image, index, faded, style, ...props }, ref) => {
     const inlineStyles = {
       opacity: faded ? "0.2" : "1",
@@ -17,7 +17,7 @@ export const Photo = forwardRef(
     return (
       <div
         ref={ref}
-        className={`rounded-lg border-1 border-solid`}
+        className={`rounded-lg border-1 border-solid p-0`}
         style={inlineStyles}
         {...props}
       />

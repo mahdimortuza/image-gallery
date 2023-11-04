@@ -16,7 +16,7 @@ import {
 } from "@dnd-kit/sortable";
 
 import SortableImage from "../../../components/SortableImage/SortableImage";
-import { Photo } from "../../../components/Image/Image";
+import { Image } from "../../../components/Image/Image";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
@@ -61,7 +61,7 @@ const Gallery = () => {
 
         <DragOverlay adjustScale={true}>
           {activeId ? (
-            <Photo image={activeId} index={images.indexOf(activeId)} />
+            <Image image={activeId} index={images.indexOf(activeId)} />
           ) : null}
         </DragOverlay>
       </DndContext>
