@@ -17,8 +17,12 @@ import {
 
 import SortableImage from "../../../components/SortableImage/SortableImage";
 import { Image } from "../../../components/Image/Image";
+import { useDispatch } from "react-redux";
 
 const Gallery = () => {
+  const dispatch = useDispatch();
+
+
   const [images, setImages] = useState([]);
   useEffect(() => {
     fetch("data.json")
