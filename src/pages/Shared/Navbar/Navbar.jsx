@@ -16,14 +16,10 @@ const menu = [
   },
   {
     id: 3,
-    path: "/portfolio",
-    name: "Portfolio",
+    path: "/documentation",
+    name: "Documentation",
   },
-  {
-    id: 4,
-    path: "/contact",
-    name: "Contact",
-  },
+  
 ];
 
 const Navbar = () => {

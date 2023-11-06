@@ -39,16 +39,16 @@ export const Image = forwardRef(
 
     return (
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
-        className={`image rounded-md border-[1px] w-full h-full border-solid relative hover:opacity-80
+        className={`image mt-3 md:mt-0 rounded-md border-[1px] w-full h-full border-solid relative hover:opacity-80
         
         ${!isChecked ? "opacity-40 hover:opacity-60" : "opacity-100"}
         ${index === 0 ? "col-span-2 row-span-2" : ""}`}
       >
         <motion.img
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
           src={image.image}
           ref={ref}
           className={`rounded-md`}

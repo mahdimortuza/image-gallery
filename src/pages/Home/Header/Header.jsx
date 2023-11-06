@@ -7,13 +7,13 @@ const Header = () => {
   const imageItem = items.filter((item) => item.status === "deleted");
 
   // const dispatch = useDispatch();
-  const handleDelete = (image) => {
+  const handleDelete = () => {
     console.log("from dispatch");
     // dispatch(removeImage(image.id));
   };
 
   return (
-    <div className="w-[800px] mx-auto py-2 px-5 mt-6 bg-white rounded-t-xl">
+    <div className="md:w-[800px] mx-auto py-2 px-5 mt-6 bg-white rounded-t-xl">
       {imageItem.length > 0 ? (
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">

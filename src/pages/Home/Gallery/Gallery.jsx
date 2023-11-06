@@ -21,13 +21,12 @@ import { useSelector } from "react-redux";
 
 const Gallery = () => {
 
+  // getting initial state from redux
   const { items } = useSelector((state) => state.imagesSlice);
-
-
   const imageItem = items.filter((item) => item.status === "exists");
-  const [images, setImages] = useState(imageItem);
-
   
+  
+  const [images, setImages] = useState(imageItem);
 
   const [activeId, setActiveId] = useState(null);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
@@ -42,8 +41,8 @@ const Gallery = () => {
         onDragCancel={handleDragCancel}
       >
         <SortableContext items={images} strategy={rectSortingStrategy}>
-          <div className="grid grid-cols-5 gap-3 bg-white rounded-b-xl pt-5 px-5 w-[800px] mx-auto py-5">
-            {images.map((image, index) => (
+          <div className="md:grid md:grid-cols-5 gap-3 bg-white rounded-b-xl pt-5 px-5 md:w-[800px] mx-auto py-5">
+            {images?.map((image, index) => (
               <SortableImage key={image.id} image={image} index={index} />
             ))}
 
