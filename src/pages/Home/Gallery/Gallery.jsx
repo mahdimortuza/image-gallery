@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiImage } from "react-icons/bi";
 import {
   DndContext,
@@ -17,18 +17,12 @@ import {
 
 import SortableImage from "../../../components/SortableImage/SortableImage";
 import { Image } from "../../../components/Image/Image";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Gallery = () => {
-  const dispatch = useDispatch();
-
-
-  const [images, setImages] = useState([]);
-  useEffect(() => {
-    fetch("data.json")
-      .then((res) => res.json())
-      .then((data) => setImages(data.image));
-  }, []);
+  const { items } = useSelector((state) => state.imagesSlice);
+  const imageItem = items.filter((item) => item.status === "exists");
+  const [images, setImages] = useState(imageItem);
 
   const [activeId, setActiveId] = useState(null);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
@@ -45,11 +39,7 @@ const Gallery = () => {
         <SortableContext items={images} strategy={rectSortingStrategy}>
           <div className="grid grid-cols-5 gap-3 w-[800px] mx-auto py-5">
             {images.map((image, index) => (
-              <SortableImage
-                key={image.id}
-                image={image}
-                index={index}
-              />
+              <SortableImage key={image.id} image={image} index={index} />
             ))}
 
             <label htmlFor="input-file">

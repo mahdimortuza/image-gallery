@@ -1,23 +1,38 @@
-import { useDispatch } from "react-redux";
-import { deleteImage } from "../../../redux/features/images/imagesSlice";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const dispatch = useDispatch();
+  const { items } = useSelector((state) => state.imagesSlice);
+  const imageItem = items.filter((item) => item.status === "deleted");
+
   const handleDelete = () => {
-    dispatch(deleteImage("hello world"));
+    console.log("from dispatch");
   };
+
+
+
   return (
-    <div className="w-[800px] mx-auto flex justify-between items-center pt-5 px-5 mt-6">
-      <div className="flex gap-3 items-center">
-        <input className="w-5 h-5" type="checkbox"></input>
-        <h5 className="text-xl font-semibold">3 files selected</h5>
-      </div>
-      <button
-        onClick={() => handleDelete()}
-        className="text-red-600 font-semibold"
-      >
-        Delete
-      </button>
+    <div className="w-[800px] mx-auto pt-5 px-5 mt-6">
+      {imageItem.length > 0 ? (
+        <div className="flex justify-between items-center">
+          <div className="flex gap-3 items-center">
+            <input
+              className="w-5 h-5"
+              type="checkbox"
+            ></input>
+            <h5 className="text-xl font-semibold">
+              {imageItem.length} files selected
+            </h5>
+          </div>
+          <button
+            onClick={() => handleDelete()}
+            className="text-red-600 font-semibold"
+          >
+            Delete
+          </button>
+        </div>
+      ) : (
+        <h1 className="text-xl font-bold">Gallery</h1>
+      )}
     </div>
   );
 };

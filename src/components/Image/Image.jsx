@@ -1,5 +1,7 @@
 import { forwardRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { updateStatus } from "../../redux/features/images/imagesSlice";
 /* eslint-disable react/display-name */
 export const Image = forwardRef(
   ({ image, index, faded, style, ...props }, ref) => {
@@ -11,19 +13,24 @@ export const Image = forwardRef(
     const [isChecked, setIsChecked] = useState(true);
     const [isHover, setIsHover] = useState(true);
 
-    const handleHover = () => {
-      setIsHover(!isHover);
+    const dispatch = useDispatch();
+
+    let statusUpdate;
+
+    if (image.status === "exists") {
+      statusUpdate = "deleted";
+    }else{
+      statusUpdate = "exists";
+    }
+
+    const handleCheck = (image) => {
+      setIsChecked(!isChecked);
+      dispatch(updateStatus({ id: image.id, status: statusUpdate }));
+      console.log(image);
     };
 
-    const arr = [];
-
-    const handleCheck = () => {
-      setIsChecked(!isChecked);
-
-      if (isChecked === true) {
-        arr.push(image.image);
-        console.log(arr, arr.length);
-      }
+    const handleHover = () => {
+      setIsHover(!isHover);
     };
 
     return (
@@ -32,7 +39,7 @@ export const Image = forwardRef(
         onMouseLeave={handleHover}
         className={`image rounded-md border-[1px] w-full h-full border-solid relative hover:opacity-80
         
-        ${!isChecked ? "opacity-40 hover:opacity-40" : "opacity-100"}
+        ${!isChecked ? "opacity-40 hover:opacity-60" : "opacity-100"}
         ${index === 0 ? "col-span-2 row-span-2" : ""}`}
       >
         <motion.img
@@ -43,7 +50,7 @@ export const Image = forwardRef(
           {...props}
         />
 
-        <div onClick={handleCheck}>
+        <div onClick={() => handleCheck(image)}>
           <input
             className={`absolute top-3 left-3 h-5 w-5
           ${isHover && isChecked ? "opacity-0" : "opacity-100"}
