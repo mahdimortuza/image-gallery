@@ -7,6 +7,7 @@ const SortableImage = (props) => {
   const sortable = useSortable({ id: props.image });
   const { attributes, listeners, setNodeRef, transform, transition } = sortable;
 
+  // styles for sorting animation
   const style = {
     transform: CSS.Transform.toString(transform),
     transformOrigin: "0 0",

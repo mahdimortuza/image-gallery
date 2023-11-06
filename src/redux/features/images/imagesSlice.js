@@ -75,10 +75,17 @@ export const counterSlice = createSlice({
   name: "imagesSlice",
   initialState,
   reducers: {
+
+    // reducer for updating status on initial state 
+
     updateStatus: (state, { payload }) => {
       const target = state.items.find((item) => item.id === payload.id);
       target.status = payload.status;
     },
+
+
+    // reducer for deleting items from the ui 
+
     removeImage: (state, { payload }) => {
       state.items = state.items.filter((item) => item.id !== payload);
     },

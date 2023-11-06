@@ -1,10 +1,7 @@
 import { forwardRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import {
-  removeImage,
-  updateStatus,
-} from "../../redux/features/images/imagesSlice";
+import { updateStatus } from "../../redux/features/images/imagesSlice";
 /* eslint-disable react/display-name */
 export const Image = forwardRef(
   ({ image, index, faded, style, ...props }, ref) => {
@@ -47,8 +44,6 @@ export const Image = forwardRef(
         ${index === 0 ? "col-span-2 row-span-2" : ""}`}
       >
         <motion.img
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
           src={image.image}
           ref={ref}
           className={`rounded-md`}

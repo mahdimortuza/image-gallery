@@ -1,25 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from '../../../assets/logo/logo.png'
+import logo from "../../../assets/logo/logo.png";
 
 const menu = [
+
+  // menu items for navigation bar 
   {
     id: 1,
     path: "/",
     name: "Home",
   },
   {
-    id: 2,
-    path: "/about",
-    name: "About",
-  },
-  {
     id: 3,
     path: "/documentation",
     name: "Documentation",
   },
-  
+  {
+    id: 2,
+    path: "/about",
+    name: "About",
+  },
 ];
 
 const Navbar = () => {

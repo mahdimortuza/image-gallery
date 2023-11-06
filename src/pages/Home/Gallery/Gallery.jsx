@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiImage } from "react-icons/bi";
 import {
   DndContext,
@@ -20,12 +20,11 @@ import { Image } from "../../../components/Image/Image";
 import { useSelector } from "react-redux";
 
 const Gallery = () => {
-
   // getting initial state from redux
   const { items } = useSelector((state) => state.imagesSlice);
   const imageItem = items.filter((item) => item.status === "exists");
-  
-  
+
+  // local state to animate sorting interactivity by user
   const [images, setImages] = useState(imageItem);
 
   const [activeId, setActiveId] = useState(null);
@@ -41,11 +40,13 @@ const Gallery = () => {
         onDragCancel={handleDragCancel}
       >
         <SortableContext items={images} strategy={rectSortingStrategy}>
+          {/* mapping over data to set them on component  */}
           <div className="md:grid md:grid-cols-5 gap-3 bg-white rounded-b-xl pt-5 px-5 md:w-[800px] mx-auto py-5">
             {images?.map((image, index) => (
               <SortableImage key={image.id} image={image} index={index} />
             ))}
 
+            {/* input field for adding new image on the gallery  */}
             <label htmlFor="input-file">
               <input
                 type="file"
@@ -70,6 +71,7 @@ const Gallery = () => {
     </div>
   );
 
+  // functions for drag and drop interaction
   function handleDragStart(event) {
     setActiveId(event.active.id);
   }

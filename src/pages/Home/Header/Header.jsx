@@ -1,10 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { BiSolidCheckSquare } from "react-icons/bi";
-import { removeImage } from "../../../redux/features/images/imagesSlice";
 
 const Header = () => {
   const { items } = useSelector((state) => state.imagesSlice);
   const imageItem = items.filter((item) => item.status === "deleted");
+
+  // dispatching functionality to delete images from ui
 
   // const dispatch = useDispatch();
   const handleDelete = () => {
@@ -14,6 +15,8 @@ const Header = () => {
 
   return (
     <div className="md:w-[800px] mx-auto py-2 px-5 mt-6 bg-white rounded-t-xl">
+      {/* conditional rendering for selected items on gallery header */}
+
       {imageItem.length > 0 ? (
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">
