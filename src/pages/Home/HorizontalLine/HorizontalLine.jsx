@@ -1,5 +1,5 @@
 const HorizontalLine = () => {
-  return <div className="divider w-[800px] mx-auto"></div>
+  return <div className="h-[1px] bg-slate-300 w-[800px] mx-auto"></div>
 };
 
 export default HorizontalLine;

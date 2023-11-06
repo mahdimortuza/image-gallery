@@ -1,7 +1,10 @@
 import { forwardRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { updateStatus } from "../../redux/features/images/imagesSlice";
+import {
+  removeImage,
+  updateStatus,
+} from "../../redux/features/images/imagesSlice";
 /* eslint-disable react/display-name */
 export const Image = forwardRef(
   ({ image, index, faded, style, ...props }, ref) => {
@@ -19,13 +22,14 @@ export const Image = forwardRef(
 
     if (image.status === "exists") {
       statusUpdate = "deleted";
-    }else{
+    } else {
       statusUpdate = "exists";
     }
 
     const handleCheck = (image) => {
       setIsChecked(!isChecked);
       dispatch(updateStatus({ id: image.id, status: statusUpdate }));
+      // dispatch(removeImage(image.id))
       console.log(image);
     };
 
@@ -35,6 +39,8 @@ export const Image = forwardRef(
 
     return (
       <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
         className={`image rounded-md border-[1px] w-full h-full border-solid relative hover:opacity-80
@@ -51,7 +57,9 @@ export const Image = forwardRef(
         />
 
         <div onClick={() => handleCheck(image)}>
-          <input
+          <motion.input
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             className={`absolute top-3 left-3 h-5 w-5
           ${isHover && isChecked ? "opacity-0" : "opacity-100"}
           `}

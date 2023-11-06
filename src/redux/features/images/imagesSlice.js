@@ -79,9 +79,12 @@ export const counterSlice = createSlice({
       const target = state.items.find((item) => item.id === payload.id);
       target.status = payload.status;
     },
+    removeImage: (state, { payload }) => {
+      state.items = state.items.filter((item) => item.id !== payload);
+    },
   },
 });
 
-export const { updateStatus } = counterSlice.actions;
+export const { removeImage, updateStatus } = counterSlice.actions;
 
 export default counterSlice.reducer;

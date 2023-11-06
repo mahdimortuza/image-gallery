@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content mt-5">
+    <footer className="footer p-10 bg-pink-200 text-black mt-5">
       <nav>
         <header className="footer-title">Services</header>
         <a className="link link-hover">Branding</a>
@@ -25,15 +25,15 @@ const Footer = () => {
         <header className="footer-title">Newsletter</header>
         <fieldset className="form-control w-80">
           <label className="label">
-            <span className="label-text">Enter your email address</span>
+            <span className="label-text  text-black ">Enter your email address</span>
           </label>
           <div className="relative">
             <input
-              type="text"
+              type="email"
               placeholder="username@site.com"
-              className="input input-bordered w-full pr-16"
+              className="px-3 py-1 rounded-md bg-pink-300 text-black w-full pr-16"
             />
-            <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+            <button className="border-l-2 px-3 py-1 rounded-md bg-pink-300 text-black absolute top-0 right-0 rounded-l-none">
               Subscribe
             </button>
           </div>
