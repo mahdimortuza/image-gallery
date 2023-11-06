@@ -75,8 +75,10 @@ const Documentation = () => {
         </span>
         <ol className="mt-2 list-decimal ml-10">
           <li>
-            Clone the repository from GitHub: git clone
-            https://github.com/mahdimortuza/image-gallery.git
+            Clone the repository from GitHub:{" "}
+            <code>
+              git clone https://github.com/mahdimortuza/image-gallery.git
+            </code>
           </li>
           <li>Change into the project directory: cd image-gallery.</li>
           <li>Install project dependencies: npm install or yarn install.</li>
@@ -119,9 +121,7 @@ const Documentation = () => {
       </p>
 
       <h2 className="mt-8">
-        <span className="text-2xl font-semibold  underline">
-          Conclusion:
-        </span>{" "}
+        <span className="text-2xl font-semibold  underline">Conclusion:</span>{" "}
         <span className="">
           In summary, the "Gallery" project is a feature-rich web application
           built with React, Redux, React DnD Kit, Framer Motion, Tailwind CSS,
