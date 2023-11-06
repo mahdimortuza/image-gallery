@@ -16,11 +16,7 @@ const menu = [
     path: "/documentation",
     name: "Documentation",
   },
-  {
-    id: 2,
-    path: "/about",
-    name: "About",
-  },
+  
 ];
 
 const Navbar = () => {
